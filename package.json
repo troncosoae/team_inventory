@@ -1,0 +1,25 @@
+{
+  "name": "team_inventory",
+  "version": "1.0.0",
+  "description": "Team inventory web app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/troncosoae/team_inventory.git"
+  },
+  "author": "troncosoae",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/troncosoae/team_inventory/issues"
+  },
+  "homepage": "https://github.com/troncosoae/team_inventory#readme",
+  "dependencies": {
+    "koa": "^2.13.1",
+    "nodemon": "^2.0.7"
+  }
+}

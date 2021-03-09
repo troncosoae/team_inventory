@@ -4,7 +4,7 @@ const bodyParser = require('koa-bodyparser')
 const render = require('koa-ejs')
 const path = require('path')
 const router = require('./router')
-// const db = require('./db')
+const db = require('./db')
 
 const app = new Koa()
 
@@ -26,7 +26,7 @@ app.use(router.routes())
 
 exports.start = async function() {
     try {
-        // db_info = await db.start()
+        db_info = await db.start()
         this.server = await app.listen(PORT)
         console.log(`Listening to PORT ${PORT}`)
     } catch (error) {

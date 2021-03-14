@@ -1,8 +1,7 @@
 const Item = require('./model')
 
 exports.create = async function(params) {
-    const { iid } = await Item.create(params)
-    const item = await Item.getById(iid)
+    const item = await Item.create(params)
     return item
 }
 

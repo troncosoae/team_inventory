@@ -1,0 +1,30 @@
+<h1>Bags</h1>
+<table>
+    <thead>
+        <tr>
+            <th scope="col">bid</th>
+            <th scope="col">name</th>
+            <th scope="col">tid</th>
+            <th scope="col">insterted_at</th>
+            <th scope="col">updated_at</th>
+            <th scope="col">update</th>
+            <th scope="col">delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% bags.forEach(bag => { %>
+        <tr>
+            <td><%- bag.bid %></td>
+            <td><%- bag.name %></td>
+            <td><%- bag.tid %></td>
+            <td><%- bag.inserted_at %></td>
+            <td><%- bag.updated_at %></td>
+            <td><form action="bags/update/<%- bag.bid %>" method="get"><input type="submit" value="update" /></form></td>
+            <td><form action="bags/delete/<%- bag.bid %>" method="post"><input type="submit" value="delete"/></form></td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+<form action="bags/create" method="get">
+    <input type="submit" value="create"/>
+</form>

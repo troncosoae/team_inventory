@@ -1,7 +1,9 @@
 <form action="/items/update/<%- item.iid %>" method="POST">
     <label>name: </label>
-    <input type="text" name="name" placeholder="<%- item.name %>">
+    <input type="text" name="name" value="<%- item.name %>">
     <label>bid: </label>
-    <input type="number" name="bid" placeholder="<%- item.bid %>">
+    <input type="number" name="bid" value="<%- item.bid %>">
+    <label>count: </label>
+    <input type="number" name="count" step=any value="<%- item.count %>">
     <input type="submit" value="Submit">
 </form>

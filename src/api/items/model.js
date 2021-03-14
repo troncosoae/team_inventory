@@ -4,10 +4,10 @@ exports.create = async function (params) {
     const now = new Date()
     return db.queryOne(
         `
-        INSERT INTO Items (inserted_at, updated_at, name, bid) 
-        VALUES ($1, $2, $3, $4) RETURNING *
+        INSERT INTO Items (inserted_at, updated_at, name, bid, count) 
+        VALUES ($1, $2, $3, $4, $5) RETURNING *
         `,
-        [now, now, params.name, params.bid]
+        [now, now, params.name, params.bid, params.count]
     )
 }
 
@@ -18,11 +18,12 @@ exports.update = async function (iid, params) {
         UPDATE Items SET 
         updated_at = $1,
         name = $2,
-        bid = $3
-        WHERE iid = $4
+        bid = $3,
+        count = $4
+        WHERE iid = $5
         RETURNING *
         `,
-        [now, params.name, params.bid, iid]
+        [now, params.name, params.bid, params.count, iid]
     )
 }
 

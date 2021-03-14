@@ -5,6 +5,7 @@
             <th scope="col">iid</th>
             <th scope="col">name</th>
             <th scope="col">bid</th>
+            <th scope="col">count</th>
             <th scope="col">insterted_at</th>
             <th scope="col">updated_at</th>
             <th scope="col">update</th>
@@ -17,6 +18,7 @@
             <td><%- item.iid %></td>
             <td><%- item.name %></td>
             <td><%- item.bid %></td>
+            <td><%- item.count %></td>
             <td><%- item.inserted_at %></td>
             <td><%- item.updated_at %></td>
             <td><form action="items/update/<%- item.iid %>" method="get"><input type="submit" value="update" /></form></td>

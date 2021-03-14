@@ -1,0 +1,30 @@
+<h1>Players</h1>
+<table>
+    <thead>
+        <tr>
+            <th scope="col">pid</th>
+            <th scope="col">name</th>
+            <th scope="col">tid</th>
+            <th scope="col">insterted_at</th>
+            <th scope="col">updated_at</th>
+            <th scope="col">update</th>
+            <th scope="col">delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% players.forEach(player => { %>
+        <tr>
+            <td><%- player.pid %></td>
+            <td><%- player.name %></td>
+            <td><%- player.tid %></td>
+            <td><%- player.inserted_at %></td>
+            <td><%- player.updated_at %></td>
+            <td><form action="players/update/<%- player.pid %>" method="get"><input type="submit" value="update" /></form></td>
+            <td><form action="players/delete/<%- player.pid %>" method="post"><input type="submit" value="delete"/></form></td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+<form action="players/create" method="get">
+    <input type="submit" value="create"/>
+</form>

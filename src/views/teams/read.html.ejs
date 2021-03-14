@@ -1,0 +1,28 @@
+<h1>teams</h1>
+<table>
+    <thead>
+        <tr>
+            <th scope="col">tid</th>
+            <th scope="col">name</th>
+            <th scope="col">insterted_at</th>
+            <th scope="col">updated_at</th>
+            <th scope="col">update</th>
+            <th scope="col">delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% teams.forEach(team => { %>
+        <tr>
+            <td><%- team.tid %></td>
+            <td><%- team.name %></td>
+            <td><%- team.inserted_at %></td>
+            <td><%- team.updated_at %></td>
+            <td><form action="teams/update/<%- team.tid %>" method="get"><input type="submit" value="update" /></form></td>
+            <td><form action="teams/delete/<%- team.tid %>" method="post"><input type="submit" value="delete"/></form></td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+<form action="teams/create" method="get">
+    <input type="submit" value="create"/>
+</form>

@@ -17,7 +17,6 @@ router.get('/create', async ctx => {
 router.get('/update/:iid', async ctx => {
     const iid = ctx.params.iid
     const item = await controller.readByID(iid)
-    console.log(item)
     await ctx.render('items/update.html.ejs', {
         item: item
     })
@@ -31,16 +30,18 @@ router.post('/create', async ctx => {
     ctx.redirect('/items')
 })
 
-router.post('/update', async ctx => {
+router.post('/update/:iid', async ctx => {
+    const iid = ctx.params.iid
     const params = ctx.request.body
-    const result = await controller.update(parseInt(params.iid), params)
+    const result = await controller.update(parseInt(iid), params)
     console.log('item updated:', result)
     ctx.redirect('/items')
 })
 
 router.post('/delete/:iid', async ctx => {
     const iid = parseInt(ctx.params.iid)
-    await controller.delete(iid)
+    const result = await controller.delete(iid)
+    console.log('item deleted:', result)
     ctx.redirect('/items')
 })
 

@@ -7,17 +7,13 @@ exports.create = async function(params) {
 }
 
 exports.update = async function(iid, params) {
-    params = {
-        ...params,
-        iid: parseInt(params.iid),
-        bid: parseInt(params.bid),
-    }
     const result = await Item.update(iid, params)
     return result
 }
 
 exports.delete = async function(iid) {
-    await Item.delete(iid)
+    const result = await Item.delete(iid)
+    return result
 }
 
 exports.read = async function() {

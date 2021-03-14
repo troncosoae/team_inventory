@@ -32,6 +32,7 @@ exports.delete = async function (iid) {
         `
         DELETE FROM Items 
         WHERE iid = $1
+        RETURNING *
         `,
         [iid]
     )

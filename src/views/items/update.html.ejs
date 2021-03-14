@@ -1,5 +1,4 @@
-<form action="/items/update" method="POST">
-    <input type="hidden" name="iid" value="<%- item.iid %>">
+<form action="/items/update/<%- item.iid %>" method="POST">
     <label>name: </label>
     <input type="text" name="name" placeholder="<%- item.name %>">
     <label>bid: </label>

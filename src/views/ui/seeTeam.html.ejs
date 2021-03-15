@@ -1,0 +1,47 @@
+<h1>Bags</h1>
+<table>
+    <thead>
+        <tr>
+            <th scope="col">bid</th>
+            <th scope="col">name</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% bags.forEach(bag => { %>
+        <tr>
+            <td><%- bag.bid %></td>
+            <td><%- bag.name %></td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+<br>
+<h1>Players</h1>
+<table>
+    <thead>
+        <tr>
+            <th scope="col">pid</th>
+            <th scope="col">name</th>
+            <% bags.forEach(bag => { %>
+                <th scope="col"><%- bag.name %></th>
+            <% }) %>
+        </tr>
+    </thead>
+    <tbody>
+    <% players.forEach(player => { %>
+        <tr>
+            <td><%- player.pid %></td>
+            <td><%- player.name %></td>
+            <% bags.forEach(bag => { %>
+                <td>
+                <form action="/responsibilitiesTaken/create" method="POST">
+                    <input type="hidden" name="bid" value="<%- bag.bid %>">
+                    <input type="hidden" name="pid" value="<%- player.pid %>">
+                    <input type="submit" value="Take <%- bag.name %>">
+                </form>
+                </td>
+            <% }) %>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>

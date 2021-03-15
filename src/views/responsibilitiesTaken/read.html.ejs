@@ -1,0 +1,30 @@
+<h1>Responsibilities Taken</h1>
+<table>
+    <thead>
+        <tr>
+            <th scope="col">rtid</th>
+            <th scope="col">bid</th>
+            <th scope="col">pid</th>
+            <th scope="col">insterted_at</th>
+            <th scope="col">updated_at</th>
+            <th scope="col">update</th>
+            <th scope="col">delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% responsibilitiesTaken.forEach(responsibilityTaken => { %>
+        <tr>
+            <td><%- responsibilityTaken.rtid %></td>
+            <td><%- responsibilityTaken.bid %></td>
+            <td><%- responsibilityTaken.pid %></td>
+            <td><%- responsibilityTaken.inserted_at %></td>
+            <td><%- responsibilityTaken.updated_at %></td>
+            <td><form action="responsibilitiesTaken/update/<%- responsibilityTaken.rtid %>" method="get"><input type="submit" value="update" /></form></td>
+            <td><form action="responsibilitiesTaken/delete/<%- responsibilityTaken.rtid %>" method="post"><input type="submit" value="delete"/></form></td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+<form action="responsibilitiesTaken/create" method="get">
+    <input type="submit" value="create"/>
+</form>
